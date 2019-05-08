@@ -62,8 +62,48 @@ object ListSolution2 extends App {
       case head :: tail => reverseList(tail) ::: List(head)
      
     } 
-    println(reverseList(nums))
-      
+    //println(reverseList(nums))
+
+
+  def count(arr:List[Int]):Int = {
+    var these = arr;
+    var number = 0
+    while(!these.isEmpty){
+      number = 1 + number
+      these = these.tail
+    }
+    number
+  }
+
+  def count2(arr: List[Int]): Int = {
+    var result = 0
+    for(a <- arr){
+      result = result + 1
+    }
+    result
+  }
+
+
+  def absolut(arr:List[Int]):List[Int]  =  arr.map(f => scala.math.abs(f))
+
+
+  def abs(a: Int): Int = if(a>0) a else -a
+  def absolut2(arr: List[Int]): List[Int] = arr match {
+    case x :: Nil => abs(x)::Nil
+    case x :: tail => abs(x) :: absolut2(tail)
+  }
+
+  def absolut3(arr: List[Int]): List[Int] = {
+    var result:List[Int] = Nil
+    var these = arr
+    while(!these.isEmpty){
+      if(these.head < 0) result = result :+ -these.head
+      else result = result :+ these.head
+      these = these.tail
+    }
+    result
+  }
+  //println(absolut3(nums))
       
   
 }
