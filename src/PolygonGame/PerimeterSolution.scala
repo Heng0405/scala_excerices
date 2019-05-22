@@ -1,4 +1,3 @@
-package PolygonGame
 
 object perimeterSolution extends App{
  
